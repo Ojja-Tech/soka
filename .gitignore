@@ -1,0 +1,9 @@
+**/.fvm/flutter_sdk
+**/.idea/
+**/.dart_tool/
+.dart_tool/
+**/*.g.dart
+**/.flutter-plugins-dependencies
+**/.flutter-plugins
+**/.env
+**/.DS_Store
