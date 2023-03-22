@@ -67,7 +67,8 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
     );
   }
 
-  static const dark = KapiraTheme(
+// Dark theme
+  static const _dark = KapiraTheme(
     primary0: Color(0xFF171827),
     primary1: Color(0xFFD2B5FF),
     secondary0: Color(0xFFFFFFFF),
@@ -77,4 +78,18 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
     medium: TextStyle(fontWeight: FontWeight.w500),
     semiBold: TextStyle(fontWeight: FontWeight.w600),
   );
+
+  static ThemeData get dark {
+    final theme = ThemeData.dark(useMaterial3: true);
+
+    return theme.copyWith(
+      extensions: <ThemeExtension<dynamic>>[
+        _dark,
+      ],
+      colorScheme: theme.colorScheme.copyWith(
+        background: _dark.primary0,
+        onBackground: _dark.secondary0,
+      ),
+    );
+  }
 }
