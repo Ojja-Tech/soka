@@ -2,7 +2,7 @@
 
 library router;
 
-enum AppPage { HOME, STANDINGS, PROFILE }
+enum AppPage { HOME, STANDINGS, PROFILE, LOGIN }
 
 extension AppPageExt on AppPage {
   String get path {
@@ -13,6 +13,8 @@ extension AppPageExt on AppPage {
         return '/standings';
       case AppPage.PROFILE:
         return '/profile';
+      case AppPage.LOGIN:
+        return '/auth/login';
     }
   }
 }

@@ -14,6 +14,10 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
   final TextStyle medium;
   final TextStyle semiBold;
 
+  // Custom Colors
+  final Color cardColor;
+  final Color handleColor;
+
   const KapiraTheme({
     required this.primary0,
     required this.primary1,
@@ -23,6 +27,8 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
     required this.regular,
     required this.medium,
     required this.semiBold,
+    required this.cardColor,
+    required this.handleColor,
   });
 
   @override
@@ -35,6 +41,8 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
     TextStyle? regular,
     TextStyle? medium,
     TextStyle? semiBold,
+    Color? cardColor,
+    Color? handleColor,
   }) {
     return KapiraTheme(
       primary0: primary0 ?? this.primary0,
@@ -45,6 +53,8 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
       regular: regular ?? this.regular,
       medium: medium ?? this.medium,
       semiBold: semiBold ?? this.semiBold,
+      cardColor: cardColor ?? this.cardColor,
+      handleColor: handleColor ?? this.handleColor,
     );
   }
 
@@ -64,6 +74,8 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
       regular: TextStyle.lerp(regular, other.regular, t) ?? regular,
       medium: TextStyle.lerp(medium, other.medium, t) ?? medium,
       semiBold: TextStyle.lerp(semiBold, other.semiBold, t) ?? semiBold,
+      cardColor: Color.lerp(cardColor, other.cardColor, t) ?? cardColor,
+      handleColor: Color.lerp(handleColor, other.handleColor, t) ?? handleColor,
     );
   }
 
@@ -77,13 +89,17 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
     regular: TextStyle(fontWeight: FontWeight.w400),
     medium: TextStyle(fontWeight: FontWeight.w500),
     semiBold: TextStyle(fontWeight: FontWeight.w600),
+    cardColor: Color(0xFF222232),
+    handleColor: Color(0xFF383846),
   );
 
   static ThemeData get dark {
     final theme = ThemeData.dark(useMaterial3: true);
 
-    return theme.copyWith(
-      extensions: <ThemeExtension<dynamic>>[
+    return ThemeData(
+      brightness: Brightness.dark,
+      useMaterial3: true,
+      extensions: const <ThemeExtension<dynamic>>[
         _dark,
       ],
       colorScheme: theme.colorScheme.copyWith(
@@ -94,6 +110,7 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
         bodyColor: _dark.secondary0,
         displayColor: _dark.secondary0,
       ),
+      fontFamily: 'Poppins',
     );
   }
 }
