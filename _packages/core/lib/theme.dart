@@ -90,6 +90,10 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
         background: _dark.primary0,
         onBackground: _dark.secondary0,
       ),
+      textTheme: theme.textTheme.apply(
+        bodyColor: _dark.secondary0,
+        displayColor: _dark.secondary0,
+      ),
     );
   }
 }
