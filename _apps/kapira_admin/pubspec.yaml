@@ -9,6 +9,8 @@ environment:
 dependencies:
   core:
     path: ../../_packages/core
+  assets:
+    path: ../../_packages/assets
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
@@ -17,6 +19,7 @@ dependencies:
     path: ../../_packages/router
   widgets:
     path: ../../_packages/widgets
+  flutter_svg: ^2.0.4
     
 dev_dependencies:
   flutter_test:

@@ -9,14 +9,20 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
   final Color secondary1;
   final Color secondary2;
 
+  // Custom Colors
+  final Color cardColor;
+  final Color handleColor;
+  final Color backgroundColor;
+  final Color facebookColor;
+
   // Text Style
   final TextStyle regular;
   final TextStyle medium;
   final TextStyle semiBold;
 
-  // Custom Colors
-  final Color cardColor;
-  final Color handleColor;
+  // Dimensions
+  final double smallBorderRadius;
+  final double borderRadius;
 
   const KapiraTheme({
     required this.primary0,
@@ -29,6 +35,10 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
     required this.semiBold,
     required this.cardColor,
     required this.handleColor,
+    required this.backgroundColor,
+    required this.smallBorderRadius,
+    required this.borderRadius,
+    required this.facebookColor,
   });
 
   @override
@@ -43,6 +53,10 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
     TextStyle? semiBold,
     Color? cardColor,
     Color? handleColor,
+    Color? backgroundColor,
+    Color? facebookColor,
+    double? smallBorderRadius,
+    double? borderRadius,
   }) {
     return KapiraTheme(
       primary0: primary0 ?? this.primary0,
@@ -55,6 +69,10 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
       semiBold: semiBold ?? this.semiBold,
       cardColor: cardColor ?? this.cardColor,
       handleColor: handleColor ?? this.handleColor,
+      backgroundColor: backgroundColor ?? this.backgroundColor,
+      facebookColor: facebookColor ?? this.facebookColor,
+      smallBorderRadius: smallBorderRadius ?? this.smallBorderRadius,
+      borderRadius: borderRadius ?? this.borderRadius,
     );
   }
 
@@ -76,6 +94,12 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
       semiBold: TextStyle.lerp(semiBold, other.semiBold, t) ?? semiBold,
       cardColor: Color.lerp(cardColor, other.cardColor, t) ?? cardColor,
       handleColor: Color.lerp(handleColor, other.handleColor, t) ?? handleColor,
+      backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t) ??
+          backgroundColor,
+      facebookColor:
+          Color.lerp(facebookColor, other.facebookColor, t) ?? facebookColor,
+      smallBorderRadius: other.smallBorderRadius,
+      borderRadius: other.borderRadius,
     );
   }
 
@@ -91,6 +115,10 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
     semiBold: TextStyle(fontWeight: FontWeight.w600),
     cardColor: Color(0xFF222232),
     handleColor: Color(0xFF383846),
+    backgroundColor: Color(0xFF181829),
+    facebookColor: Color(0xFF003B87),
+    smallBorderRadius: 10,
+    borderRadius: 25,
   );
 
   static ThemeData get dark {
@@ -111,6 +139,6 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
         displayColor: _dark.secondary0,
       ),
       fontFamily: 'Poppins',
-    );
+    ).themeInputs();
   }
 }
