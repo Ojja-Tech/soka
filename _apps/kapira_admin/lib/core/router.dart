@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:kapira_admin/presentation/leagues/leagues_page.dart';
 import 'package:kapira_admin/presentation/login/login_page.dart';
 import 'package:router/router.dart';
 
@@ -9,6 +10,10 @@ final appRouter = GoRouter(
       path: AppPage.LOGIN.path,
       builder: (_, __) => const LoginPage(),
     ),
+    GoRoute(
+      path: AppPage.LEAGUES.path,
+      builder: (_, __) => const LeaguesPage(),
+    ),
   ],
-  initialLocation: AppPage.LOGIN.path,
+  initialLocation: AppPage.LEAGUES.path,
 );

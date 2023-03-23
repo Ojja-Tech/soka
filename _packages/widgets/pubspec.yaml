@@ -12,8 +12,11 @@ dependencies:
     path: ../assets
   core:
     path: ../core
+  dotted_border: ^2.0.0+3
   flutter:
     sdk: flutter
+  image_cropper: ^3.0.1
+  image_picker: ^0.8.7
 
 dev_dependencies:
   flutter_test:

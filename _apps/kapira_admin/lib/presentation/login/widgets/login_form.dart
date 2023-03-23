@@ -81,9 +81,9 @@ class _LoginFormState extends State<LoginForm> {
               const SizedBox(height: 15),
               ElevatedGradientButton(
                 onPressed: () {},
-                gradient: const LinearGradient(colors: [
-                  Color(0xFF4769DC),
-                  Color(0xFFAF69B3),
+                gradient: LinearGradient(colors: [
+                  context.kTheme.primary2,
+                  context.kTheme.primary3,
                 ]),
                 child: const Text('SIGN IN'),
               ),
@@ -145,12 +145,12 @@ class _LoginFormState extends State<LoginForm> {
                 child: RichText(
                   text: TextSpan(
                     text: "Don't have an account? ",
-                    children: const [
+                    children: [
                       TextSpan(
                         text: 'Register Now',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFFAF69B3),
+                          color: context.kTheme.primary3,
                         ),
                       )
                     ],

@@ -5,6 +5,8 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
   // Colors
   final Color primary0;
   final Color primary1;
+  final Color primary2;
+  final Color primary3;
   final Color secondary0;
   final Color secondary1;
   final Color secondary2;
@@ -27,6 +29,8 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
   const KapiraTheme({
     required this.primary0,
     required this.primary1,
+    required this.primary2,
+    required this.primary3,
     required this.secondary0,
     required this.secondary1,
     required this.secondary2,
@@ -44,7 +48,9 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
   @override
   ThemeExtension<KapiraTheme> copyWith({
     Color? primary0,
-    Color? primary1,
+    Color? primary1,    
+    Color? primary2,
+    Color? primary3,
     Color? secondary0,
     Color? secondary1,
     Color? secondary2,
@@ -60,7 +66,9 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
   }) {
     return KapiraTheme(
       primary0: primary0 ?? this.primary0,
-      primary1: primary1 ?? this.primary1,
+      primary1: primary1 ?? this.primary1,      
+      primary2: primary2 ?? this.primary2,
+      primary3: primary3 ?? this.primary3,
       secondary0: secondary0 ?? this.secondary0,
       secondary1: secondary1 ?? this.secondary1,
       secondary2: secondary2 ?? this.secondary2,
@@ -86,6 +94,8 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
     return KapiraTheme(
       primary0: Color.lerp(primary0, other.primary0, t) ?? primary0,
       primary1: Color.lerp(primary1, other.primary1, t) ?? primary1,
+      primary2: Color.lerp(primary2, other.primary2, t) ?? primary2,
+      primary3: Color.lerp(primary3, other.primary3, t) ?? primary3,
       secondary0: Color.lerp(secondary0, other.secondary0, t) ?? secondary0,
       secondary1: Color.lerp(secondary1, other.secondary1, t) ?? secondary1,
       secondary2: Color.lerp(secondary2, other.secondary2, t) ?? secondary2,
@@ -107,6 +117,8 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
   static const _dark = KapiraTheme(
     primary0: Color(0xFF171827),
     primary1: Color(0xFFD2B5FF),
+    primary2: Color(0xFF4769DC),
+    primary3: Color(0xFFAF69B3),
     secondary0: Color(0xFFFFFFFF),
     secondary1: Color(0xFFDADADA),
     secondary2: Color(0xFF797979),
