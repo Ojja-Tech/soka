@@ -1,8 +1,10 @@
 import 'package:core/core.dart';
+import 'package:core/models/league/league.dart';
 import 'package:flutter/material.dart';
 
 class LeagueCard extends StatelessWidget {
-  const LeagueCard({super.key});
+  final League league;
+  const LeagueCard({super.key, required this.league});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +17,13 @@ class LeagueCard extends StatelessWidget {
           ),
           padding: const EdgeInsets.all(10),
           child: Image.asset(
-            'lib/images/butiki-league.png',
+            league.logo,
             package: 'assets',
           ),
         ),
         const SizedBox(height: 10),
-        const Text(
-          'Butiki League',
+        Text(
+          league.name,
           maxLines: 1,
           overflow: TextOverflow.clip,
         )

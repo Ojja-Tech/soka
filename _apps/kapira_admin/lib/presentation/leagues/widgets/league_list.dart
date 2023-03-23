@@ -1,12 +1,14 @@
+import 'package:core/models/league/league.dart';
 import 'package:flutter/material.dart';
 import 'package:kapira_admin/presentation/leagues/widgets/league_card.dart';
 
 class LeagueList extends StatelessWidget {
-  const LeagueList({super.key});
+  final List<League> leagues;
+  const LeagueList({super.key, required this.leagues});
 
   @override
   Widget build(BuildContext context) {
-    return GridView(
+    return GridView.builder(
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
@@ -14,7 +16,10 @@ class LeagueList extends StatelessWidget {
         crossAxisSpacing: 20,
         childAspectRatio: .77,
       ),
-      children: const [LeagueCard()],
+      itemBuilder: (context, index) {
+        return LeagueCard(league: leagues[index]);
+      },
+      itemCount: leagues.length,
     );
   }
 }

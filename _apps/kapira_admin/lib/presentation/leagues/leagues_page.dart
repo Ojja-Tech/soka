@@ -1,5 +1,6 @@
 import 'package:assets/assets.dart';
 import 'package:core/core.dart';
+import 'package:core/models/league/league.dart';
 import 'package:flutter/material.dart';
 import 'package:kapira_admin/presentation/leagues/widgets/league_list.dart';
 
@@ -32,7 +33,16 @@ class LeaguesPage extends StatelessWidget {
         ),
         toolbarHeight: 80,
       ),
-      body: const LeagueList(),
+      body: const LeagueList(
+        leagues: [
+          League(
+            id: 0,
+            name: 'Butiki League',
+            logo: 'lib/images/butiki-league.png',
+            seasons: [],
+          )
+        ],
+      ),
       floatingActionButton: ElevatedButton.icon(
         label: const Text('Add League'),
         icon: const Icon(KapiraIcon.trophy),
@@ -44,8 +54,9 @@ class LeaguesPage extends StatelessWidget {
               });
         },
         style: ElevatedButton.styleFrom(
-            backgroundColor: context.kTheme.primary3,
-            foregroundColor: context.kTheme.secondary0),
+          backgroundColor: context.kTheme.primary3,
+          foregroundColor: context.kTheme.secondary0,
+        ),
       ),
     );
   }

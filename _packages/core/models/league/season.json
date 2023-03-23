@@ -1,0 +1,23 @@
+{
+  "model_name": "season",
+  "properties": [
+    {
+      "name": "year",
+      "type": "int"
+    },
+    {
+      "name": "start",
+      "type": "String"
+    },
+    {
+      "name": "end",
+      "type": "String"
+    },
+    {
+      "name": "current",
+      "type": "bool"
+    }
+  ],
+  "style": "basic",
+  "additionals": ["json", "equatable", "copyWith"]
+}

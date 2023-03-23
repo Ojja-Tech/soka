@@ -31,14 +31,14 @@ class AddLeague extends StatelessWidget {
               TextFormField(),
               const SizedBox(height: 15),
               const ImageSelector(
-                padding: EdgeInsets.symmetric(vertical: 50),
+                padding: EdgeInsets.symmetric(vertical: 65),
                 title: 'League Logo',
                 subtitle: 'Select Logo',
               ),
               const SizedBox(height: 20),
               ElevatedGradientButton(
                 onPressed: () {
-                  // TODO: Create 
+                  // TODO: Create
                 },
                 gradient: LinearGradient(colors: [
                   context.kTheme.primary2,

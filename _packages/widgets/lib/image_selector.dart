@@ -11,7 +11,7 @@ class ImageSelector extends StatefulWidget {
   final String? title;
   final String subtitle;
   final EdgeInsets padding;
-  final Radius borderRadius;
+  final double borderRadius;
   final Color? color;
   final Function(File?)? onImageChanged;
 
@@ -19,8 +19,8 @@ class ImageSelector extends StatefulWidget {
     super.key,
     this.title,
     required this.subtitle,
-    this.padding = const EdgeInsets.all(8),
-    this.borderRadius = const Radius.circular(12),
+    this.padding = const EdgeInsets.symmetric(vertical: 8),
+    this.borderRadius = 12,
     this.color,
     this.onImageChanged,
   });
@@ -33,11 +33,10 @@ class _ImageSelectorState extends State<ImageSelector> {
   File? _image;
   final ImagePicker _picker = ImagePicker();
   final _cropper = ImageCropper();
-  late final List<PlatformUiSettings> _uiSettings;
+  List<PlatformUiSettings> _uiSettings = [];
 
   @override
-  void initState() {
-    super.initState();
+  Widget build(BuildContext context) {
     _uiSettings = [
       AndroidUiSettings(
         toolbarTitle: widget.title,
@@ -53,10 +52,7 @@ class _ImageSelectorState extends State<ImageSelector> {
         resetAspectRatioEnabled: false,
       ),
     ];
-  }
 
-  @override
-  Widget build(BuildContext context) {
     if (_image != null) {
       return Stack(
         children: [
@@ -65,12 +61,15 @@ class _ImageSelectorState extends State<ImageSelector> {
             strokeWidth: 2,
             dashPattern: const [6, 6],
             borderType: BorderType.RRect,
-            radius: widget.borderRadius,
+            radius: Radius.circular(widget.borderRadius),
             child: AspectRatio(
               aspectRatio: 1.6,
-              child: Image.file(
-                _image!,
-                fit: BoxFit.contain,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(widget.borderRadius),
+                child: Image.file(
+                  _image!,
+                  fit: BoxFit.fitWidth,
+                ),
               ),
             ),
           ),
@@ -96,7 +95,7 @@ class _ImageSelectorState extends State<ImageSelector> {
       strokeWidth: 2,
       dashPattern: const [6, 6],
       borderType: BorderType.RRect,
-      radius: widget.borderRadius,
+      radius: Radius.circular(widget.borderRadius),
       padding: widget.padding,
       child: Center(
         child: Column(

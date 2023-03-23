@@ -1,0 +1,28 @@
+{
+  "model_name": "league",
+  "properties": [
+    {
+      "name": "id",
+      "type": "int"
+    },
+    {
+      "name": "name",
+      "type": "String"
+    },
+    {
+      "name": "logo",
+      "type": "String"
+    },
+    {
+      "name": "seasons",
+      "type": "List<Season>"
+    }
+  ],
+  "style": "basic",
+  "relations": [
+    {
+      "name": "Season"
+    }
+  ],
+  "additionals": ["json", "equatable", "copyWith"]
+}
