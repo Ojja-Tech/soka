@@ -2,14 +2,15 @@
 
 library router;
 
-enum AppPage {
+enum AppRoute {
   HOME('/'),
   STANDINGS('/standings'),
   PROFILE('/profile'),
   LOGIN('/auth/login'),
+  TEAMS('/teams'),
   LEAGUES('/leagues');
 
   final String path;
 
-  const AppPage(this.path);
+  const AppRoute(this.path);
 }

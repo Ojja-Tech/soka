@@ -1,0 +1,23 @@
+{
+  "model_name": "team",
+  "properties": [
+    {
+      "name": "id",
+      "type": "String"
+    },
+    {
+      "name": "name",
+      "type": "String"
+    },
+    {
+      "name": "code",
+      "type": "String"
+    },
+    {
+      "name": "logo",
+      "type": "String"
+    }
+  ],
+  "style": "basic",
+  "additionals": ["json", "equatable", "copyWith"]
+}

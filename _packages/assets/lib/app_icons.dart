@@ -20,8 +20,10 @@ class KapiraIcon {
       IconData(0xea3c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData facebook_circle =
       IconData(0xea3d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData trophy =
-      IconData(0xead7, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData square =
       IconData(0xebca, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData users =
+      IconData(0xec35, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData trophy =
+      IconData(0xec44, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

@@ -1,26 +1,23 @@
 import 'package:equatable/equatable.dart';
-import 'package:core/models/league/season.dart';
 
-/// {@template league}
-/// League description
+/// {@template team}
+/// Team description
 /// {@endtemplate}
-class League extends Equatable {
-  /// {@macro league}
-  const League({
+class Team extends Equatable {
+  /// {@macro team}
+  const Team({
     required this.id,
     required this.name,
+    required this.code,
     required this.logo,
-    required this.seasons,
   });
 
-  /// Creates a League from Json map
-  factory League.fromJson(Map<String, dynamic> json) => League(
+  /// Creates a Team from Json map
+  factory Team.fromJson(Map<String, dynamic> json) => Team(
         id: json['id'] as String,
         name: json['name'] as String,
+        code: json['code'] as String,
         logo: json['logo'] as String,
-        seasons: (json['seasons'] as List<dynamic>)
-            .map((dynamic e) => Season.fromJson(e as Map<String, dynamic>))
-            .toList(),
       );
 
   /// A description for id
@@ -29,24 +26,24 @@ class League extends Equatable {
   /// A description for name
   final String name;
 
+  /// A description for code
+  final String code;
+
   /// A description for logo
   final String logo;
 
-  /// A description for seasons
-  final List<Season> seasons;
-
-  /// Creates a copy of the current League with property changes
-  League copyWith({
+  /// Creates a copy of the current Team with property changes
+  Team copyWith({
     String? id,
     String? name,
+    String? code,
     String? logo,
-    List<Season>? seasons,
   }) {
-    return League(
+    return Team(
       id: id ?? this.id,
       name: name ?? this.name,
+      code: code ?? this.code,
       logo: logo ?? this.logo,
-      seasons: seasons ?? this.seasons,
     );
   }
 
@@ -54,15 +51,15 @@ class League extends Equatable {
   List<Object?> get props => [
         id,
         name,
+        code,
         logo,
-        seasons,
       ];
 
-  /// Creates a Json map from a League
+  /// Creates a Json map from a Team
   Map<String, dynamic> toJson() => <String, dynamic>{
         'id': id,
         'name': name,
+        'code': code,
         'logo': logo,
-        'seasons': seasons,
       };
 }

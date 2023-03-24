@@ -22,8 +22,8 @@ final appRouter = GoRouter(
       },
       routes: [
         GoRoute(
-          path: AppPage.HOME.path,
-          name: AppPage.HOME.name,
+          path: AppRoute.HOME.path,
+          name: AppRoute.HOME.name,
           pageBuilder: (context, state) {
             return NoTransitionPage(
               child: HomePage(
@@ -33,8 +33,8 @@ final appRouter = GoRouter(
           },
         ),
         GoRoute(
-          path: AppPage.STANDINGS.path,
-          name: AppPage.STANDINGS.name,
+          path: AppRoute.STANDINGS.path,
+          name: AppRoute.STANDINGS.name,
           pageBuilder: (context, state) {
             return NoTransitionPage(
               child: StandingsPage(
@@ -44,8 +44,8 @@ final appRouter = GoRouter(
           },
         ),
         GoRoute(
-          path: AppPage.PROFILE.path,
-          name: AppPage.PROFILE.name,
+          path: AppRoute.PROFILE.path,
+          name: AppRoute.PROFILE.name,
           pageBuilder: (context, state) {
             return NoTransitionPage(
               child: ProfilePage(
@@ -57,5 +57,5 @@ final appRouter = GoRouter(
       ],
     )
   ],
-  initialLocation: AppPage.HOME.path,
+  initialLocation: AppRoute.HOME.path,
 );

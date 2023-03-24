@@ -1,13 +1,15 @@
 import 'package:assets/assets.dart';
 import 'package:core/core.dart';
 import 'package:core/models/league/league.dart';
+import 'package:core/models/team/team.dart';
 import 'package:flutter/material.dart';
-import 'package:kapira_admin/presentation/leagues/widgets/league_list.dart';
+import 'package:kapira_admin/view/teams/widgets/team_list.dart';
 
-import 'widgets/add_league.dart';
+import 'widgets/add_team.dart';
 
-class LeaguesPage extends StatelessWidget {
-  const LeaguesPage({super.key});
+class TeamsPage extends StatelessWidget {
+  final League league;
+  const TeamsPage({super.key, required this.league});
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +21,12 @@ class LeaguesPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Available Leagues',
+              '${league.name} Teams',
               style: context.headlineMedium,
             ),
             const SizedBox(height: 15),
             Text(
-              'Select a league to view the clubs',
+              'Select a team to manage it',
               style: context.labelLarge?.copyWith(
                 color: context.kTheme.secondary1,
               ),
@@ -33,24 +35,28 @@ class LeaguesPage extends StatelessWidget {
         ),
         toolbarHeight: 80,
       ),
-      body: const LeagueList(
+      body: const TeamList(
         leagues: [
-          League(
-            id: 0,
-            name: 'Butiki League',
-            logo: 'lib/images/butiki-league.png',
-            seasons: [],
-          )
+          Team(
+              id: "0-five",
+              name: 'O-FIVE FC',
+              logo: 'lib/images/butiki-league.png',
+              code: 'O-FIVE')
         ],
       ),
       floatingActionButton: ElevatedButton.icon(
-        label: const Text('Add League'),
-        icon: const Icon(KapiraIcon.trophy),
+        label: const Text('Add Team'),
+        icon: const Icon(KapiraIcon.users),
         onPressed: () {
           showModalBottomSheet(
               context: context,
+              backgroundColor: context.kTheme.cardColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25),
+              ),
+              constraints: BoxConstraints.expand(),
               builder: (context) {
-                return const AddLeague();
+                return const AddTeam();
               });
         },
         style: ElevatedButton.styleFrom(
