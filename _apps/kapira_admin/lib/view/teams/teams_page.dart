@@ -50,11 +50,11 @@ class TeamsPage extends StatelessWidget {
         onPressed: () {
           showModalBottomSheet(
               context: context,
+              isScrollControlled: true,
               backgroundColor: context.kTheme.cardColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25),
               ),
-              constraints: BoxConstraints.expand(),
               builder: (context) {
                 return const AddTeam();
               });
