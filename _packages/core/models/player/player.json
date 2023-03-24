@@ -3,7 +3,7 @@
   "properties": [
     {
       "name": "id",
-      "type": "String"
+      "type": "int"
     },
     {
       "name": "name",
@@ -31,11 +31,11 @@
     },
     {
       "name": "height",
-      "type": "String"
+      "type": "String?"
     },
     {
       "name": "weight",
-      "type": "String"
+      "type": "String?"
     },
     {
       "name": "injured",
@@ -43,14 +43,6 @@
     },
     {
       "name": "photo",
-      "type": "String"
-    },
-    {
-      "name": "number",
-      "type": "int"
-    },
-    {
-      "name": "position",
       "type": "String"
     }
   ],
