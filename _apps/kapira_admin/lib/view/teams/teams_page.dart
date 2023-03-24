@@ -36,7 +36,7 @@ class TeamsPage extends StatelessWidget {
         toolbarHeight: 80,
       ),
       body: const TeamList(
-        leagues: [
+        teams: [
           Team(
               id: "0-five",
               name: 'O-FIVE FC',

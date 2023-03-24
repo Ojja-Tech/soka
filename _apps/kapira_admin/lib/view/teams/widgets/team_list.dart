@@ -1,10 +1,12 @@
 import 'package:core/models/team/team.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kapira_admin/view/teams/widgets/team_card.dart';
+import 'package:router/router.dart';
 
 class TeamList extends StatelessWidget {
-  final List<Team> leagues;
-  const TeamList({super.key, required this.leagues});
+  final List<Team> teams;
+  const TeamList({super.key, required this.teams});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +19,14 @@ class TeamList extends StatelessWidget {
         childAspectRatio: .77,
       ),
       itemBuilder: (context, index) {
-        return TeamCard(league: leagues[index]);
+        return TeamCard(
+          league: teams[index],
+          onTap: () {
+            context.push(AppRoute.PLAYERS.path, extra: teams[index]);
+          },
+        );
       },
-      itemCount: leagues.length,
+      itemCount: teams.length,
     );
   }
 }

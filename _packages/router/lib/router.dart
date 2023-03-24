@@ -8,6 +8,7 @@ enum AppRoute {
   PROFILE('/profile'),
   LOGIN('/auth/login'),
   TEAMS('/teams'),
+  PLAYERS('/players'),
   LEAGUES('/leagues');
 
   final String path;
