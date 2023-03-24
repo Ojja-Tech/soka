@@ -1,5 +1,5 @@
-BUILDER_DIRS := packages/core packages/network features/auth admin client
-SUB_DIRS := $(BUILDER_DIRS) packages/widgets packages/routing packages/tusome_assets
+BUILDER_DIRS := _apps/kapira _apps/kapira_admin _packages/network
+SUB_DIRS := $(BUILDER_DIRS) _packages/widgets _packages/router _packages/assets _packages/core 
 
 runner: ## Run build runner
 	@-$(foreach SUBDIR,$(BUILDER_DIRS), \
