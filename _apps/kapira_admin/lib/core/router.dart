@@ -23,5 +23,5 @@ final appRouter = GoRouter(
       ),
     ),
   ],
-  initialLocation: AppRoute.LEAGUES.path,
+  initialLocation: AppRoute.LOGIN.path,
 );
