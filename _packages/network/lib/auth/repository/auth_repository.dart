@@ -1,4 +1,5 @@
 abstract class AuthRepository {
+
   // login
   Future<void> loginWithEmailAndPassword(String username, String password);
 

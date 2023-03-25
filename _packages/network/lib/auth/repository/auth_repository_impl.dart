@@ -18,7 +18,9 @@ class AuthRepositoryImpl extends AuthRepository {
     try {
       await auth.signInWithEmailAndPassword(
           email: username, password: password);
-    } on FirebaseAuthException catch (e) {}
+    } on Exception catch (e) {
+      throw Exception(e);
+    }
   }
 
   @override
@@ -38,7 +40,9 @@ class AuthRepositoryImpl extends AuthRepository {
 
     try {
       await auth.signInWithCredential(credential);
-    } on FirebaseAuthException catch (e) {}
+    } on Exception catch (e) {
+      throw Exception(e);
+    }
   }
 
   @override
@@ -53,13 +57,8 @@ class AuthRepositoryImpl extends AuthRepository {
         email: email,
         password: password,
       );
-    } on FirebaseAuthException catch (e) {
-    } catch (e) {
-      if (e == 'email-already-in-use') {
-        print('Email already in use.');
-      } else {
-        print('Error: $e');
-      }
+    } on Exception catch (e) {
+      throw Exception(e);
     }
   }
 }
