@@ -9,11 +9,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dartz: ^0.10.1
   google_sign_in: "^4.5.1"
   firebase_core: "^1.10.0"
   cloud_firestore: "^3.1.0"
   firebase_auth: "^3.2.0"
   riverpod_annotation: "^2.0.2"
+  firebase_auth_mocks: ^0.8.7
 
 
 dev_dependencies:
@@ -22,6 +24,9 @@ dev_dependencies:
   flutter_lints: "^2.0.0"
   build_runner: "^2.3.3"
   riverpod_generator: "^2.1.4"
+  mocktail: ^0.3.0
+  freezed: ^2.2.0
+
 
 
 # For information on the generic Dart part of this file, see the
