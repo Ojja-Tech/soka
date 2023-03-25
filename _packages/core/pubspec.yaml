@@ -10,11 +10,17 @@ dependencies:
   equatable: ^2.0.5
   flutter:
     sdk: flutter
+  intl: ^0.18.0
+  riverpod_annotation: "^2.0.2"
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  build_runner: "^2.3.3"
+  riverpod_generator: "^2.1.4"
+
 
 
 # For information on the generic Dart part of this file, see the
