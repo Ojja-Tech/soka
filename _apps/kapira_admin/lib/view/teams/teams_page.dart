@@ -36,7 +36,7 @@ class TeamsPage extends StatelessWidget {
         toolbarHeight: 80,
       ),
       body: const TeamList(
-        leagues: [
+        teams: [
           Team(
               id: "0-five",
               name: 'O-FIVE FC',
@@ -50,11 +50,11 @@ class TeamsPage extends StatelessWidget {
         onPressed: () {
           showModalBottomSheet(
               context: context,
+              isScrollControlled: true,
               backgroundColor: context.kTheme.cardColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25),
               ),
-              constraints: BoxConstraints.expand(),
               builder: (context) {
                 return const AddTeam();
               });

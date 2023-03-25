@@ -14,8 +14,9 @@ class ElevatedGradientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
+    return InkWell(
+      onTap: onPressed,
+      borderRadius: BorderRadius.circular(context.kTheme.smallBorderRadius),
       child: Ink(
         decoration: BoxDecoration(
           gradient: gradient,

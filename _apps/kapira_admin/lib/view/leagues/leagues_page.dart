@@ -3,7 +3,6 @@ import 'package:core/core.dart';
 import 'package:core/models/league/league.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kapira_admin/core/app_page.dart';
 import 'package:kapira_admin/view/leagues/widgets/league_list.dart';
 import 'package:router/router.dart';
 

@@ -10,10 +10,7 @@ class AddTeam extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        // color: context.kTheme.cardColor,
-        // borderRadius: BorderRadius.circular(25),
-      ),
+      height: context.height * 2 / 3,
       padding: const EdgeInsets.fromLTRB(25, 15, 25, 20),
       child: SingleChildScrollView(
         child: Form(
