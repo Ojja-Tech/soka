@@ -18,8 +18,16 @@ class AuthRepositoryImpl extends AuthRepository {
     try {
       await auth.signInWithEmailAndPassword(
           email: username, password: password);
-    } on Exception catch (e) {
-      throw Exception(e);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'network-request-failed') {
+        throw Exception('No Internet Connection');
+      } else if (e.code == "invalid-email" ||
+          e.code == "wrong-password" ||
+          e.code == "user-not-found") {
+        throw Exception('Invalid username or Password');
+      } else {
+        throw Exception('Unknown Error');
+      }
     }
   }
 
@@ -30,7 +38,7 @@ class AuthRepositoryImpl extends AuthRepository {
 
     // Obtain the auth details from the request
     final GoogleSignInAuthentication googleAuth =
-        await googleUser!.authentication;
+        await googleUser.authentication;
 
     // Create a new credential
     final credential = GoogleAuthProvider.credential(
@@ -57,8 +65,18 @@ class AuthRepositoryImpl extends AuthRepository {
         email: email,
         password: password,
       );
-    } on Exception catch (e) {
-      throw Exception(e);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'network-request-failed') {
+        throw Exception('No Internet Connection');
+      } else if (e.code == "email-already-in-use") {
+        throw Exception('Email already in use');
+      } else if (e.code == 'invalid-email') {
+        throw Exception('Invalid email');
+      } else if (e.code == 'weak-password') {
+        throw Exception('Weak Password');
+      } else {
+        throw Exception('Unknown Error ');
+      }
     }
   }
 }
