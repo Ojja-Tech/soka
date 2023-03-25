@@ -14,29 +14,33 @@ class Player extends Equatable {
     required this.age,
     required this.birth,
     required this.nationality,
-    this.height,
-    this.weight,
+    required this.height,
+    required this.weight,
     required this.injured,
     required this.photo,
+    required this.number,
+    required this.position,
   });
 
   /// Creates a Player from Json map
   factory Player.fromJson(Map<String, dynamic> json) => Player(
-        id: json['id'] as int,
+        id: json['id'] as String,
         name: json['name'] as String,
         firstname: json['firstname'] as String,
         lastname: json['lastname'] as String,
         age: json['age'] as int,
         birth: Birth.fromJson(json['birth'] as Map<String, dynamic>),
         nationality: json['nationality'] as String,
-        height: json['height'] as String?,
-        weight: json['weight'] as String?,
+        height: json['height'] as String,
+        weight: json['weight'] as String,
         injured: json['injured'] as bool,
         photo: json['photo'] as String,
+        number: json['number'] as int,
+        position: json['position'] as String,
       );
 
   /// A description for id
-  final int id;
+  final String id;
 
   /// A description for name
   final String name;
@@ -57,10 +61,10 @@ class Player extends Equatable {
   final String nationality;
 
   /// A description for height
-  final String? height;
+  final String height;
 
   /// A description for weight
-  final String? weight;
+  final String weight;
 
   /// A description for injured
   final bool injured;
@@ -68,19 +72,27 @@ class Player extends Equatable {
   /// A description for photo
   final String photo;
 
+  /// A description for number
+  final int number;
+
+  /// A description for position
+  final String position;
+
   /// Creates a copy of the current Player with property changes
   Player copyWith({
-    int? id,
+    String? id,
     String? name,
     String? firstname,
     String? lastname,
     int? age,
     Birth? birth,
     String? nationality,
-    String? Function()? height,
-    String? Function()? weight,
+    String? height,
+    String? weight,
     bool? injured,
     String? photo,
+    int? number,
+    String? position,
   }) {
     return Player(
       id: id ?? this.id,
@@ -90,10 +102,12 @@ class Player extends Equatable {
       age: age ?? this.age,
       birth: birth ?? this.birth,
       nationality: nationality ?? this.nationality,
-      height: height != null ? height() : this.height,
-      weight: weight != null ? weight() : this.weight,
+      height: height ?? this.height,
+      weight: weight ?? this.weight,
       injured: injured ?? this.injured,
       photo: photo ?? this.photo,
+      number: number ?? this.number,
+      position: position ?? this.position,
     );
   }
 
@@ -110,6 +124,8 @@ class Player extends Equatable {
         weight,
         injured,
         photo,
+        number,
+        position,
       ];
 
   /// Creates a Json map from a Player
@@ -125,5 +141,7 @@ class Player extends Equatable {
         'weight': weight,
         'injured': injured,
         'photo': photo,
+        'number': number,
+        'position': position,
       };
 }
