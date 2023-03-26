@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
 import 'package:core/models/league/league.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 
 class LeagueCard extends StatelessWidget {
   final League league;
@@ -24,9 +26,17 @@ class LeagueCard extends StatelessWidget {
               color: context.kTheme.cardColor,
             ),
             padding: const EdgeInsets.all(10),
-            child: Image.asset(
-              league.logo,
-              package: 'assets',
+            child: CachedNetworkImage(
+              imageUrl: league.logo.image,
+              placeholder: (context, url) => ClipRRect(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child: AspectRatio(
+                    aspectRatio: 1,
+                    child: BlurHash(hash: league.logo.hash),
+                  ),
+                ),
+              ),
             ),
           ),
         ),

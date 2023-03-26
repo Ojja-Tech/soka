@@ -1,0 +1,15 @@
+{
+  "model_name": "app_image",
+  "properties": [
+    {
+      "name": "image",
+      "type": "String"
+    },
+    {
+      "name": "hash",
+      "type": "String"
+    }
+  ],
+  "style": "basic",
+  "additionals": ["json", "equatable", "copyWith"]
+}

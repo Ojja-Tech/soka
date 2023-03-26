@@ -20,7 +20,7 @@ class TeamList extends StatelessWidget {
       ),
       itemBuilder: (context, index) {
         return TeamCard(
-          league: teams[index],
+          team: teams[index],
           onTap: () {
             context.push(AppRoute.PLAYERS.path, extra: teams[index]);
           },

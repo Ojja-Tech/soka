@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:core/models/app_image.dart';
 
 /// {@template team}
 /// Team description
@@ -17,7 +18,7 @@ class Team extends Equatable {
         id: json['id'] as String,
         name: json['name'] as String,
         code: json['code'] as String,
-        logo: json['logo'] as String,
+        logo: AppImage.fromJson(json['logo'] as Map<String, dynamic>),
       );
 
   /// A description for id
@@ -30,14 +31,14 @@ class Team extends Equatable {
   final String code;
 
   /// A description for logo
-  final String logo;
+  final AppImage logo;
 
   /// Creates a copy of the current Team with property changes
   Team copyWith({
     String? id,
     String? name,
     String? code,
-    String? logo,
+    AppImage? logo,
   }) {
     return Team(
       id: id ?? this.id,

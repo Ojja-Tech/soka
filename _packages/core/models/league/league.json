@@ -3,7 +3,7 @@
   "properties": [
     {
       "name": "id",
-      "type": "int"
+      "type": "String"
     },
     {
       "name": "name",
@@ -11,7 +11,7 @@
     },
     {
       "name": "logo",
-      "type": "String"
+      "type": "AppImage"
     },
     {
       "name": "seasons",
@@ -22,6 +22,9 @@
   "relations": [
     {
       "name": "Season"
+    },
+    {
+      "name": "AppImage"
     }
   ],
   "additionals": ["json", "equatable", "copyWith"]
