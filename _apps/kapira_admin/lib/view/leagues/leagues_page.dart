@@ -42,9 +42,9 @@ class LeaguesPage extends StatelessWidget {
             id: '0',
             name: 'Butiki League',
             logo: AppImage(
-              image: 'https://cdn.pixabay.com/photo/2017/02/05/14/59/logo-2040327_1280.png',
-              hash: 'L5H2EC=PM+yV0g-mq.wG9c010J}I'
-            ),
+                image:
+                    'https://cdn.pixabay.com/photo/2017/02/05/14/59/logo-2040327_1280.png',
+                hash: 'L5H2EC=PM+yV0g-mq.wG9c010J}I'),
             seasons: [],
           )
         ],
