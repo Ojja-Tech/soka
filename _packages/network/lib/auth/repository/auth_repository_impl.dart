@@ -79,4 +79,10 @@ class AuthRepositoryImpl extends AuthRepository {
       }
     }
   }
+  
+  @override
+  Future<void> signInWithFacebook(String email) {
+    // TODO: implement signInWithFacebook
+    throw UnimplementedError();
+  }
 }
