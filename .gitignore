@@ -9,4 +9,5 @@
 **/.DS_Store
 **/google-services.json
 **/firebase_app_id_file.json
-**/GoogleService-Info.json
+**/GoogleService-Info.plist
+**/firebase_options.dart

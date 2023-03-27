@@ -25,10 +25,10 @@ void main() {
       FirebaseAuthSetup mocks = FirebaseAuthSetup(signedIn: true);
 
       AuthRepositoryImpl firebaseAuthRepository =
-          AuthRepositoryImpl(auth: mocks.mockFirebaseAuth);
+          AuthRepositoryImpl(firebaseAuth: mocks.mockFirebaseAuth);
 
       // perform test
-      var result = await firebaseAuthRepository.auth.currentUser;
+      var result = await firebaseAuthRepository.firebaseAuth.currentUser;
 
       // verify
       expect(result?.uid, equals(mocks.mockFirebaseUser.uid));
@@ -40,7 +40,7 @@ void main() {
     FirebaseAuthSetup mocks = FirebaseAuthSetup(signedIn: true);
     firebase_auth.FirebaseAuth mockFirebaseAuth = mocks.mockFirebaseAuth;
     AuthRepositoryImpl firebaseAuthRepository =
-        AuthRepositoryImpl(auth: mocks.mockFirebaseAuth);
+        AuthRepositoryImpl(firebaseAuth: mocks.mockFirebaseAuth);
     // perform test
     expect(mockFirebaseAuth.currentUser, equals(mocks.mockFirebaseUser));
     await firebaseAuthRepository.signOut();
