@@ -1,0 +1,64 @@
+{
+  "model_name": "player",
+  "properties": [
+    {
+      "name": "id",
+      "type": "String"
+    },
+    {
+      "name": "name",
+      "type": "String"
+    },
+    {
+      "name": "firstname",
+      "type": "String"
+    },
+    {
+      "name": "lastname",
+      "type": "String"
+    },
+    {
+      "name": "age",
+      "type": "int"
+    },
+    {
+      "name": "birth",
+      "type": "Birth"
+    },
+    {
+      "name": "nationality",
+      "type": "String"
+    },
+    {
+      "name": "height",
+      "type": "String"
+    },
+    {
+      "name": "weight",
+      "type": "String"
+    },
+    {
+      "name": "injured",
+      "type": "bool"
+    },
+    {
+      "name": "photo",
+      "type": "String"
+    },
+    {
+      "name": "number",
+      "type": "int"
+    },
+    {
+      "name": "position",
+      "type": "String"
+    }
+  ],
+  "style": "basic",
+  "relations": [
+    {
+      "name": "Birth"
+    }
+  ],
+  "additionals": ["json", "equatable", "copyWith"]
+}

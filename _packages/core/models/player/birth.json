@@ -1,0 +1,19 @@
+{
+  "model_name": "birth",
+  "properties": [
+    {
+      "name": "date",
+      "type": "String"
+    },
+    {
+      "name": "place",
+      "type": "String?"
+    },
+    {
+      "name": "country",
+      "type": "String"
+    }
+  ],
+  "style": "basic",
+  "additionals": ["json", "equatable", "copyWith"]
+}
