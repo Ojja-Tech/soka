@@ -8,6 +8,9 @@ abstract class AuthRepository {
   // signIn with google
   Future<void> signInWithGoogle(String email);
 
+  // signin with facebook
+  Future<void> signInWithFacebook(String email);
+
   // signOut
   Future<void> signOut();
 }
