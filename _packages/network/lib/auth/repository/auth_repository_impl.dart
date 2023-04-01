@@ -1,3 +1,4 @@
+import 'package:core/errors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -16,7 +17,9 @@ class AuthRepositoryImpl extends AuthRepository {
 
   @override
   Future<void> loginWithEmailAndPassword(
-      String username, String password) async {
+    String username,
+    String password,
+  ) async {
     try {
       await firebaseAuth.signInWithEmailAndPassword(
           email: username, password: password);
@@ -36,14 +39,18 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  Future<void> signInWithGoogle(String email) async {
+  Future<void> signInWithGoogle() async {
     try {
       // Trigger the authentication flow
       final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
 
+      if (googleUser == null) {
+        throw const MessageException('Google SignIn Failed');
+      }
+
       // Obtain the auth details from the request
       final GoogleSignInAuthentication googleAuth =
-          await googleUser!.authentication;
+          await googleUser.authentication;
 
       // Create a new credential
       final credential = GoogleAuthProvider.credential(
@@ -52,6 +59,8 @@ class AuthRepositoryImpl extends AuthRepository {
       );
 
       await firebaseAuth.signInWithCredential(credential);
+    } on MessageException {
+      rethrow;
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case 'account-exists-with-different-credential':
@@ -69,7 +78,7 @@ class AuthRepositoryImpl extends AuthRepository {
         default:
           break;
       }
-    } on Object catch (e) {
+    } on Object {
       throw Exception('Unknown Error');
     }
   }

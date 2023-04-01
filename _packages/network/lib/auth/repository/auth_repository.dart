@@ -6,7 +6,7 @@ abstract class AuthRepository {
   Future<void> signUpWithEmailAndPassword(String email, String password);
 
   // signIn with google
-  Future<void> signInWithGoogle(String email);
+  Future<void> signInWithGoogle();
 
   // signin with facebook
   Future<void> signInWithFacebook(String email);
