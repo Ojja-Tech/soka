@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:core/models/player/birth.dart';
+import 'package:core/models/app_image.dart';
 
 /// {@template player}
 /// Player description
@@ -34,7 +35,7 @@ class Player extends Equatable {
         height: json['height'] as String,
         weight: json['weight'] as String,
         injured: json['injured'] as bool,
-        photo: json['photo'] as String,
+        photo: AppImage.fromJson(json['photo'] as Map<String, dynamic>),
         number: json['number'] as int,
         position: json['position'] as String,
       );
@@ -70,7 +71,7 @@ class Player extends Equatable {
   final bool injured;
 
   /// A description for photo
-  final String photo;
+  final AppImage photo;
 
   /// A description for number
   final int number;
@@ -90,7 +91,7 @@ class Player extends Equatable {
     String? height,
     String? weight,
     bool? injured,
-    String? photo,
+    AppImage? photo,
     int? number,
     String? position,
   }) {

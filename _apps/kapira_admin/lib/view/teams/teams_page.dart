@@ -1,5 +1,6 @@
 import 'package:assets/assets.dart';
 import 'package:core/core.dart';
+import 'package:core/models/app_image.dart';
 import 'package:core/models/league/league.dart';
 import 'package:core/models/team/team.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,10 @@ class TeamsPage extends StatelessWidget {
           Team(
               id: "0-five",
               name: 'O-FIVE FC',
-              logo: 'lib/images/butiki-league.png',
+              logo: AppImage(
+                image: 'https://cdn.pixabay.com/photo/2017/03/16/21/18/logo-2150297_1280.png',
+                hash:'L5H2EC=PM+yV0g-mq.wG9c010J}I'
+              ),
               code: 'O-FIVE')
         ],
       ),

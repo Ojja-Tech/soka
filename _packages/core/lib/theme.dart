@@ -13,6 +13,7 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
 
   // Custom Colors
   final Color cardColor;
+  final Color avatarBackground;
   final Color handleColor;
   final Color backgroundColor;
   final Color facebookColor;
@@ -38,6 +39,7 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
     required this.medium,
     required this.semiBold,
     required this.cardColor,
+    required this.avatarBackground,
     required this.handleColor,
     required this.backgroundColor,
     required this.smallBorderRadius,
@@ -58,6 +60,7 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
     TextStyle? medium,
     TextStyle? semiBold,
     Color? cardColor,
+    Color? avatarBackground,
     Color? handleColor,
     Color? backgroundColor,
     Color? facebookColor,
@@ -76,6 +79,7 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
       medium: medium ?? this.medium,
       semiBold: semiBold ?? this.semiBold,
       cardColor: cardColor ?? this.cardColor,
+      avatarBackground: cardColor ?? this.cardColor,
       handleColor: handleColor ?? this.handleColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       facebookColor: facebookColor ?? this.facebookColor,
@@ -103,6 +107,7 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
       medium: TextStyle.lerp(medium, other.medium, t) ?? medium,
       semiBold: TextStyle.lerp(semiBold, other.semiBold, t) ?? semiBold,
       cardColor: Color.lerp(cardColor, other.cardColor, t) ?? cardColor,
+      avatarBackground: Color.lerp(avatarBackground, other.avatarBackground, t) ?? avatarBackground,
       handleColor: Color.lerp(handleColor, other.handleColor, t) ?? handleColor,
       backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t) ??
           backgroundColor,
@@ -126,6 +131,7 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
     medium: TextStyle(fontWeight: FontWeight.w500),
     semiBold: TextStyle(fontWeight: FontWeight.w600),
     cardColor: Color(0xFF222232),
+    avatarBackground: Color(0xFF444556),
     handleColor: Color(0xFF383846),
     backgroundColor: Color(0xFF181829),
     facebookColor: Color(0xFF003B87),

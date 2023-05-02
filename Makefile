@@ -1,5 +1,6 @@
-BUILDER_DIRS := _apps/kapira _apps/kapira_admin _packages/network
-SUB_DIRS := $(BUILDER_DIRS) _packages/widgets _packages/router _packages/assets _packages/core 
+CORE_PKG := _packages/core
+BUILDER_DIRS := $(CORE_PKG) packages/network features/auth admin client
+SUB_DIRS := $(BUILDER_DIRS) packages/widgets packages/routing packages/tusome_assets
 
 runner: ## Run build runner
 	@-$(foreach SUBDIR,$(BUILDER_DIRS), \
@@ -13,8 +14,11 @@ pub_get: ## Run pub get
 		$(MAKE) -C $(SUBDIR) pub_get ; \
 	)
 
+models:
+	$(MAKE) -C $(CORE_PKG) models
+
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: runner pub_get $(SUB_DIRS)
+.PHONY: runner pub_get $(SUB_DIRS) models help
 .DEFAULT_GOAL := help

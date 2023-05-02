@@ -15,9 +15,14 @@
     },
     {
       "name": "logo",
-      "type": "String"
+      "type": "AppImage"
     }
   ],
   "style": "basic",
+  "relations": [
+    {
+      "name": "AppImage"
+    }
+  ],
   "additionals": ["json", "equatable", "copyWith"]
 }

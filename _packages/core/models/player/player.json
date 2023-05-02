@@ -43,7 +43,7 @@
     },
     {
       "name": "photo",
-      "type": "String"
+      "type": "AppImage"
     },
     {
       "name": "number",
@@ -58,6 +58,8 @@
   "relations": [
     {
       "name": "Birth"
+    },{
+      "name": "AppImage"
     }
   ],
   "additionals": ["json", "equatable", "copyWith"]

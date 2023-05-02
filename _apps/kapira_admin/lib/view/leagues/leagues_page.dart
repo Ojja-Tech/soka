@@ -1,5 +1,6 @@
 import 'package:assets/assets.dart';
 import 'package:core/core.dart';
+import 'package:core/models/app_image.dart';
 import 'package:core/models/league/league.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -40,7 +41,10 @@ class LeaguesPage extends StatelessWidget {
           League(
             id: '0',
             name: 'Butiki League',
-            logo: 'lib/images/butiki-league.png',
+            logo: AppImage(
+                image:
+                    'https://cdn.pixabay.com/photo/2017/02/05/14/59/logo-2040327_1280.png',
+                hash: 'L5H2EC=PM+yV0g-mq.wG9c010J}I'),
             seasons: [],
           )
         ],

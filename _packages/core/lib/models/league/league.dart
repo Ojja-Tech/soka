@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:core/models/league/season.dart';
+import 'package:core/models/app_image.dart';
 
 /// {@template league}
 /// League description
@@ -17,7 +18,7 @@ class League extends Equatable {
   factory League.fromJson(Map<String, dynamic> json) => League(
         id: json['id'] as String,
         name: json['name'] as String,
-        logo: json['logo'] as String,
+        logo: AppImage.fromJson(json['logo'] as Map<String, dynamic>),
         seasons: (json['seasons'] as List<dynamic>)
             .map((dynamic e) => Season.fromJson(e as Map<String, dynamic>))
             .toList(),
@@ -30,7 +31,7 @@ class League extends Equatable {
   final String name;
 
   /// A description for logo
-  final String logo;
+  final AppImage logo;
 
   /// A description for seasons
   final List<Season> seasons;
@@ -39,7 +40,7 @@ class League extends Equatable {
   League copyWith({
     String? id,
     String? name,
-    String? logo,
+    AppImage? logo,
     List<Season>? seasons,
   }) {
     return League(
