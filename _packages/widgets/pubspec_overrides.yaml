@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: assets,core
+dependency_overrides:
+  assets:
+    path: ../assets
+  core:
+    path: ../core

@@ -4,9 +4,9 @@ import 'package:core/models/app_image.dart';
 import 'package:core/models/league/league.dart';
 import 'package:core/models/team/team.dart';
 import 'package:flutter/material.dart';
-import 'package:kapira_admin/view/teams/widgets/team_list.dart';
 
 import 'widgets/add_team.dart';
+import 'widgets/team_list.dart';
 
 class TeamsPage extends StatelessWidget {
   final League league;

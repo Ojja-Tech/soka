@@ -1,6 +1,7 @@
 import 'package:core/models/league/league.dart';
 import 'package:flutter/material.dart';
-import 'package:kapira_admin/view/leagues/widgets/league_card.dart';
+
+import 'league_card.dart';
 
 class LeagueList extends StatelessWidget {
   final List<League> leagues;

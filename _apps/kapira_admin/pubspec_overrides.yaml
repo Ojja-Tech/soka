@@ -1,0 +1,10 @@
+# melos_managed_dependency_overrides: assets,core,router,widgets
+dependency_overrides:
+  assets:
+    path: ../../_packages/assets
+  core:
+    path: ../../_packages/core
+  router:
+    path: ../../_packages/router
+  widgets:
+    path: ../../_packages/widgets

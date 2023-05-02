@@ -4,10 +4,11 @@ import 'package:core/core.dart';
 import 'package:core/models/image_file.dart';
 import 'package:core/utils/image.ext.dart';
 import 'package:flutter/material.dart';
-import 'package:kapira_admin/view/leagues/models/add_league_model.dart';
 import 'package:widgets/buttons.dart';
 import 'package:widgets/drag_handle.dart';
 import 'package:widgets/image_selector.dart';
+
+import '../models/add_league_model.dart';
 
 class AddLeague extends StatefulWidget {
   const AddLeague({super.key});

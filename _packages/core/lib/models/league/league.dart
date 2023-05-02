@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:core/models/league/season.dart';
-import 'package:core/models/app_image.dart';
+
+import '../app_image.dart';
+import 'season.dart';
 
 /// {@template league}
 /// League description

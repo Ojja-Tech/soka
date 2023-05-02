@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:network/auth/repository/auth_repository_impl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import '../repository/auth_repository_impl.dart';
 
 part 'auth.provider.g.dart';
 

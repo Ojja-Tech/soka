@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:core/models/player/birth.dart';
-import 'package:core/models/app_image.dart';
+
+import '../app_image.dart';
+import 'birth.dart';
 
 /// {@template player}
 /// Player description

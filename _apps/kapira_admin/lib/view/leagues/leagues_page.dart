@@ -4,10 +4,10 @@ import 'package:core/models/app_image.dart';
 import 'package:core/models/league/league.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kapira_admin/view/leagues/widgets/league_list.dart';
 import 'package:router/router.dart';
 
 import 'widgets/add_league.dart';
+import 'widgets/league_list.dart';
 
 class LeaguesPage extends StatelessWidget {
   const LeaguesPage({super.key});

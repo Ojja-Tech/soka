@@ -1,11 +1,12 @@
 import 'package:core/models/league/league.dart';
 import 'package:core/models/team/team.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kapira_admin/view/leagues/leagues_page.dart';
-import 'package:kapira_admin/view/login/login_page.dart';
-import 'package:kapira_admin/view/players/players_page.dart';
-import 'package:kapira_admin/view/teams/teams_page.dart';
 import 'package:router/router.dart';
+
+import '../view/leagues/leagues_page.dart';
+import '../view/login/login_page.dart';
+import '../view/players/players_page.dart';
+import '../view/teams/teams_page.dart';
 
 // GoRouter configuration
 final appRouter = GoRouter(

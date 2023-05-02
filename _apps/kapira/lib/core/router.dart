@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kapira/presentation/home/home_page.dart';
-import 'package:kapira/presentation/main_page.dart';
-import 'package:kapira/presentation/profile/profile_page.dart';
-import 'package:kapira/presentation/standings/standings_page.dart';
 import 'package:router/router.dart';
+
+import '../presentation/home/home_page.dart';
+import '../presentation/main_page.dart';
+import '../presentation/profile/profile_page.dart';
+import '../presentation/standings/standings_page.dart';
 
 // GoRouter configuration
 final GlobalKey<NavigatorState> _shellNavigator =

@@ -23,12 +23,12 @@ dependencies:
   cached_network_image: ^3.2.3
   skeletons: ^0.0.3
   flutter_blurhash: ^0.7.0
+  firebase_core: ^2.10.0
+  flutter_riverpod: ^2.3.6
     
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-
 
 flutter:
   uses-material-design: true
