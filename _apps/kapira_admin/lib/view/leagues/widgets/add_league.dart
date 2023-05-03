@@ -72,24 +72,14 @@ class _AddLeagueState extends State<AddLeague> {
                 onImageChanged: (image) {
                   _logo = image;
                 },
-              ),
-              // ValueListenableBuilder<bool>(
-              //   valueListenable: _isLogoValid,
-              //   builder: (context, isLogoValid, child) {
-              //     if (isFormValid) return const SizedBox.shrink();
+                validator: (value) {
+                  if (value == null) {
+                    return "League Logo is required";
+                  }
 
-              //     return child!;
-              //   },
-              //   child: Column(
-              //     children: [
-              //       const SizedBox(height: 5),
-              //       Text(
-              //         'League logo is required.',
-              //         style: context.labelSmall,
-              //       ),
-              //     ],
-              //   ),
-              // ),
+                  return null;
+                },
+              ),
               const SizedBox(height: 20),
               ElevatedGradientButton(
                 onPressed: () async {

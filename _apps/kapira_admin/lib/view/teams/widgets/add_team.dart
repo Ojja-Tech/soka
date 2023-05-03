@@ -34,10 +34,17 @@ class AddTeam extends StatelessWidget {
                     helperText: 'Team Code e.g OFV for O-FIVE'),
               ),
               const SizedBox(height: 15),
-              const ImageSelector(
+              ImageSelector(
                 padding: EdgeInsets.symmetric(vertical: 65),
                 title: 'Team Logo',
                 subtitle: 'Select Logo',
+                validator: (value) {
+                  if (value == null) {
+                    return "Team Logo is required";
+                  }
+
+                  return null;
+                },
               ),
               const SizedBox(height: 20),
               ElevatedGradientButton(

@@ -2,12 +2,13 @@ import 'dart:io';
 
 import 'package:assets/assets.dart';
 import 'package:core/core.dart';
+import 'package:core/utils/file.ext.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ImageSelector extends StatefulWidget {
+class ImageSelector extends FormField<File> {
   final String? title;
   final String subtitle;
   final EdgeInsets padding;
@@ -15,7 +16,7 @@ class ImageSelector extends StatefulWidget {
   final Color? color;
   final Function(File?)? onImageChanged;
 
-  const ImageSelector({
+  ImageSelector({
     super.key,
     this.title,
     required this.subtitle,
@@ -23,120 +24,153 @@ class ImageSelector extends StatefulWidget {
     this.borderRadius = 12,
     this.color,
     this.onImageChanged,
-  });
+    FormFieldSetter<File>? onSaved,
+    FormFieldValidator<File>? validator,
+    File? initialValue,
+    bool enabled = true,
+    AutovalidateMode autovalidateMode = AutovalidateMode.disabled,
+    String? restorationId,
+  }) : super(
+            onSaved: onSaved,
+            validator: validator,
+            initialValue: initialValue,
+            enabled: enabled,
+            autovalidateMode: autovalidateMode,
+            restorationId: restorationId,
+            builder: (FormFieldState<File> field) {
+              void onChangeHandler(File? value) {
+                field.didChange(value);
+                onImageChanged?.call(value);
+              }
 
-  @override
-  State<ImageSelector> createState() => _ImageSelectorState();
-}
-
-class _ImageSelectorState extends State<ImageSelector> {
-  File? _image;
-  final ImagePicker _picker = ImagePicker();
-  final _cropper = ImageCropper();
-  List<PlatformUiSettings> _uiSettings = [];
-
-  @override
-  Widget build(BuildContext context) {
-    _uiSettings = [
-      AndroidUiSettings(
-        toolbarTitle: widget.title,
-        toolbarColor: context.kTheme.primary0,
-        toolbarWidgetColor: Colors.white,
-        initAspectRatio: CropAspectRatioPreset.square,
-        lockAspectRatio: true,
-      ),
-      IOSUiSettings(
-        title: widget.title,
-        aspectRatioPickerButtonHidden: true,
-        aspectRatioLockEnabled: true,
-        resetAspectRatioEnabled: false,
-      ),
-    ];
-
-    if (_image != null) {
-      return Stack(
-        children: [
-          DottedBorder(
-            color: widget.color ?? context.kTheme.primary3,
-            strokeWidth: 2,
-            dashPattern: const [6, 6],
-            borderType: BorderType.RRect,
-            radius: Radius.circular(widget.borderRadius),
-            child: AspectRatio(
-              aspectRatio: 1.6,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(widget.borderRadius),
-                child: Image.file(
-                  _image!,
-                  fit: BoxFit.fitWidth,
+              final _uiSettings = [
+                AndroidUiSettings(
+                  toolbarTitle: title,
+                  toolbarColor: field.context.kTheme.primary0,
+                  toolbarWidgetColor: Colors.white,
+                  initAspectRatio: CropAspectRatioPreset.square,
+                  lockAspectRatio: true,
                 ),
-              ),
-            ),
-          ),
-          Positioned.fill(
-            child: Align(
-              alignment: Alignment.topRight,
-              child: FloatingActionButton.small(
-                onPressed: () {
-                  setState(() {
-                    _image = null;
-                    widget.onImageChanged?.call(null);
-                  });
-                },
-                child: const Icon(KapiraIcon.cross),
-              ),
-            ),
-          )
-        ],
-      );
-    }
-    return DottedBorder(
-      color: widget.color ?? context.kTheme.primary3,
-      strokeWidth: 2,
-      dashPattern: const [6, 6],
-      borderType: BorderType.RRect,
-      radius: Radius.circular(widget.borderRadius),
-      padding: widget.padding,
-      child: Center(
-        child: Column(
-          children: [
-            if (widget.title != null) ...[
-              Text(widget.title!),
-              const SizedBox(
-                height: 15,
-              )
-            ],
-            ElevatedButton(
-              onPressed: () async {
-                final XFile? systemImage =
-                    await _picker.pickImage(source: ImageSource.gallery);
+                IOSUiSettings(
+                  title: title,
+                  aspectRatioPickerButtonHidden: true,
+                  aspectRatioLockEnabled: true,
+                  resetAspectRatioEnabled: false,
+                ),
+              ];
 
-                CroppedFile? croppedFile = await _cropper.cropImage(
-                  sourcePath: systemImage!.path,
-                  compressFormat: ImageCompressFormat.png,
-                  aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
-                  aspectRatioPresets: [
-                    CropAspectRatioPreset.square,
+              if (field.value != null) {
+                return Stack(
+                  children: [
+                    DottedBorder(
+                      color: color ?? field.context.kTheme.primary3,
+                      strokeWidth: 2,
+                      dashPattern: const [6, 6],
+                      borderType: BorderType.RRect,
+                      radius: Radius.circular(borderRadius),
+                      child: AspectRatio(
+                        aspectRatio: 1.6,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(borderRadius),
+                          child: Image.file(
+                            field.value!,
+                            fit: BoxFit.fitWidth,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned.fill(
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: FloatingActionButton.small(
+                          onPressed: () {
+                            onChangeHandler(null);
+                          },
+                          child: const Icon(KapiraIcon.cross),
+                        ),
+                      ),
+                    ),
+                    Positioned.fill(
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 8, bottom: 5),
+                          child: Chip(
+                            label: Text(field.value!.toReadableSize(2)),
+                            padding: EdgeInsets.zero,
+                          ),
+                        ),
+                      ),
+                    )
                   ],
-                  uiSettings: _uiSettings,
                 );
+              }
 
-                if (croppedFile != null) {
-                  setState(() {
-                    _image = File(croppedFile.path);
-                    widget.onImageChanged?.call(_image!);
-                  });
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: context.kTheme.primary3,
-                foregroundColor: context.kTheme.secondary0,
-              ),
-              child: Text(widget.subtitle),
-            )
-          ],
-        ),
-      ),
-    );
-  }
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DottedBorder(
+                    color: color ?? field.context.kTheme.primary3,
+                    strokeWidth: 2,
+                    dashPattern: const [6, 6],
+                    borderType: BorderType.RRect,
+                    radius: Radius.circular(borderRadius),
+                    padding: padding,
+                    child: Center(
+                      child: Column(
+                        children: [
+                          if (title != null) ...[
+                            Text(title),
+                            const SizedBox(
+                              height: 15,
+                            )
+                          ],
+                          ElevatedButton(
+                            onPressed: () async {
+                              final XFile? systemImage = await _picker
+                                  .pickImage(source: ImageSource.gallery);
+
+                              CroppedFile? croppedFile =
+                                  await _cropper.cropImage(
+                                sourcePath: systemImage!.path,
+                                compressFormat: ImageCompressFormat.png,
+                                aspectRatio:
+                                    const CropAspectRatio(ratioX: 1, ratioY: 1),
+                                aspectRatioPresets: [
+                                  CropAspectRatioPreset.square,
+                                ],
+                                uiSettings: _uiSettings,
+                              );
+
+                              if (croppedFile != null) {
+                                onChangeHandler(File(croppedFile.path));
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: field.context.kTheme.primary3,
+                              foregroundColor: field.context.kTheme.secondary0,
+                            ),
+                            child: Text(subtitle),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  if (field.hasError) ...[
+                    const SizedBox(height: 8),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        field.errorText ?? "Error",
+                        style: field.context.bodySmall
+                            ?.copyWith(color: field.context.scheme.error),
+                      ),
+                    )
+                  ]
+                ],
+              );
+            });
 }
+
+final ImagePicker _picker = ImagePicker();
+final _cropper = ImageCropper();
