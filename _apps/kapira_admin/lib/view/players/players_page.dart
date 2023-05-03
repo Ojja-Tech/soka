@@ -4,7 +4,8 @@ import 'package:core/models/player/birth.dart';
 import 'package:core/models/player/player.dart';
 import 'package:core/models/team/team.dart';
 import 'package:flutter/material.dart';
-import 'package:kapira_admin/view/players/widgets/player_list.dart';
+
+import 'widgets/player_list.dart';
 
 class PlayersPage extends StatelessWidget {
   final Team team;

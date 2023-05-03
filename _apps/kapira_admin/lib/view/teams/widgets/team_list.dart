@@ -1,8 +1,9 @@
 import 'package:core/models/team/team.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kapira_admin/view/teams/widgets/team_card.dart';
 import 'package:router/router.dart';
+
+import 'team_card.dart';
 
 class TeamList extends StatelessWidget {
   final List<Team> teams;

@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:core/models/app_image.dart';
+
+import '../app_image.dart';
 
 /// {@template team}
 /// Team description

@@ -28,6 +28,9 @@ extension ThemeBuildContextX on BuildContext {
   // If brightness dark
   bool get isDark => theme.brightness == Brightness.dark;
 
+  // Color scheme
+  ColorScheme get scheme => theme.colorScheme;
+
   KapiraTheme get kTheme => theme.kTheme;
 
   // Text themes

@@ -4,10 +4,11 @@ import 'package:core/core.dart';
 import 'package:core/models/image_file.dart';
 import 'package:core/utils/image.ext.dart';
 import 'package:flutter/material.dart';
-import 'package:kapira_admin/view/leagues/models/add_league_model.dart';
 import 'package:widgets/buttons.dart';
 import 'package:widgets/drag_handle.dart';
 import 'package:widgets/image_selector.dart';
+
+import '../models/add_league_model.dart';
 
 class AddLeague extends StatefulWidget {
   const AddLeague({super.key});
@@ -71,24 +72,14 @@ class _AddLeagueState extends State<AddLeague> {
                 onImageChanged: (image) {
                   _logo = image;
                 },
-              ),
-              // ValueListenableBuilder<bool>(
-              //   valueListenable: _isLogoValid,
-              //   builder: (context, isLogoValid, child) {
-              //     if (isFormValid) return const SizedBox.shrink();
+                validator: (value) {
+                  if (value == null) {
+                    return "League Logo is required";
+                  }
 
-              //     return child!;
-              //   },
-              //   child: Column(
-              //     children: [
-              //       const SizedBox(height: 5),
-              //       Text(
-              //         'League logo is required.',
-              //         style: context.labelSmall,
-              //       ),
-              //     ],
-              //   ),
-              // ),
+                  return null;
+                },
+              ),
               const SizedBox(height: 20),
               ElevatedGradientButton(
                 onPressed: () async {
@@ -104,7 +95,7 @@ class _AddLeagueState extends State<AddLeague> {
                       ImageFile(_logo!, hash),
                     );
 
-                    print(hash);
+                    print(form);
                   }
                 },
                 gradient: LinearGradient(colors: [

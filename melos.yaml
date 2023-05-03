@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=melos.yaml.schema.json
+name: sokka
+
+sdkPath: .fvm/flutter_sdk # Comment out if not using fvm or replace with your custom flutter sdk
+
+repository: https://github.com/Ojja-Tech/soka
+
+packages:
+  - _packages/*
+  - _apps/*
+  
+command:
+  bootstrap:
+    runPubGetInParallel: false
+    usePubspecOverrides: true
+
+scripts:
+  analyze:
+    exec: dart analyze .
+    concurrency: 1
+    fail-fast: true
+    order-dependents: true
+    description: |
+        Run `flutter analyze` in all packages.
+  
+  format:
+    exec: dart format --set-exit-if-changed .
+    concurrency: 1
+    fail-fast: true
+    description: | 
+      Run `dart format` in all packages.
+    
+  get:
+    exec: flutter pub get
+    concurrency: 1
+    fail-fast: true
+    order-dependents: true
+    description: |
+      Run `flutter pub get` in all packages.
+
+  add:
+    exec: flutter pub add $1
+    description: |
+      Run `flutter pub add` in package.
+    packageFilters:
+      flutter: true
+
+  remove:
+    exec: flutter pub remove $1
+    description: |
+      Run `flutter pub add` in package.
+    packageFilters:
+      flutter: true
+
+  add:dev:
+    exec: flutter pub add $1 --dev
+    description: |
+      Run `flutter pub add --dev` in package.
+    packageFilters:
+      flutter: true
+     
+  test: 
+    exec: flutter test --coverage -r expanded --no-pub --test-randomize-ordering-seed random
+    concurrency: 1
+    fail-fast: true
+    order-dependents: true
+    packageFilters:
+      dirExists: test
+    description: |
+      Run unit and widget tests in all packages.
+
+  build:
+    exec: flutter pub run build_runner build --delete-conflicting-outputs
+    concurrency: 1
+    fail-fast: true
+    order-dependents: true
+    packageFilters:
+      dependsOn: build_runner
+    description: |
+      Run `build_runner` build command in all packages that has a dependency on `build_runner`.
