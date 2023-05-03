@@ -33,7 +33,7 @@ class AuthRepositoryImpl extends AuthRepository {
       } else {
         throw Exception('Unknown Error');
       }
-    } on Object catch (e) {
+    } on Object catch (_) {
       throw Exception('Unknown Error');
     }
   }

@@ -105,7 +105,7 @@ class _AddLeagueState extends State<AddLeague> {
                       ImageFile(_logo!, hash),
                     );
 
-                    print(hash);
+                    print(form);
                   }
                 },
                 gradient: LinearGradient(colors: [

@@ -1,10 +1,9 @@
 import 'package:core/errors.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:network/auth/repository/auth_repository_impl.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:network/auth/repository/auth_repository_impl.dart';
 
 import '../../utils/google_sign_in_mocks_base.dart';
 
