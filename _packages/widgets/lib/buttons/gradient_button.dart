@@ -2,7 +2,7 @@ part of '../buttons.dart';
 
 class ElevatedGradientButton extends StatelessWidget {
   final Widget? child;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Gradient? gradient;
 
   const ElevatedGradientButton({
@@ -14,23 +14,36 @@ class ElevatedGradientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed,
-      borderRadius: BorderRadius.circular(context.kTheme.smallBorderRadius),
+    return ElevatedButton(
+      onPressed: onPressed,
       child: Ink(
+        padding: EdgeInsets.zero,
         decoration: BoxDecoration(
           gradient: gradient,
-          borderRadius: BorderRadius.circular(context.kTheme.smallBorderRadius),
+          borderRadius: BorderRadius.all(
+            Radius.circular(context.kTheme.smallBorderRadius),
+          ),
         ),
         child: Container(
-          constraints: const BoxConstraints(
-            minWidth: 88.0,
-            minHeight: 36.0,
-          ),
-          padding: const EdgeInsets.symmetric(vertical: 15),
+          constraints: BoxConstraints(
+            minWidth:
+                ElevatedButton.styleFrom().minimumSize?.resolve({})?.width ??
+                    88,
+            minHeight:
+                ElevatedButton.styleFrom().minimumSize?.resolve({})?.height ??
+                    36.0,
+          ), // min sizes for Material buttons
           alignment: Alignment.center,
           child: child,
         ),
+      ),
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+            context.kTheme.smallBorderRadius,
+          ),
+        ),
+        padding: const EdgeInsets.all(0.0),
       ),
     );
   }
