@@ -50,7 +50,7 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
   @override
   ThemeExtension<KapiraTheme> copyWith({
     Color? primary0,
-    Color? primary1,    
+    Color? primary1,
     Color? primary2,
     Color? primary3,
     Color? secondary0,
@@ -69,7 +69,7 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
   }) {
     return KapiraTheme(
       primary0: primary0 ?? this.primary0,
-      primary1: primary1 ?? this.primary1,      
+      primary1: primary1 ?? this.primary1,
       primary2: primary2 ?? this.primary2,
       primary3: primary3 ?? this.primary3,
       secondary0: secondary0 ?? this.secondary0,
@@ -107,7 +107,9 @@ class KapiraTheme extends ThemeExtension<KapiraTheme> {
       medium: TextStyle.lerp(medium, other.medium, t) ?? medium,
       semiBold: TextStyle.lerp(semiBold, other.semiBold, t) ?? semiBold,
       cardColor: Color.lerp(cardColor, other.cardColor, t) ?? cardColor,
-      avatarBackground: Color.lerp(avatarBackground, other.avatarBackground, t) ?? avatarBackground,
+      avatarBackground:
+          Color.lerp(avatarBackground, other.avatarBackground, t) ??
+              avatarBackground,
       handleColor: Color.lerp(handleColor, other.handleColor, t) ?? handleColor,
       backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t) ??
           backgroundColor,

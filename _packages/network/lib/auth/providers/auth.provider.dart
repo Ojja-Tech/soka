@@ -10,7 +10,7 @@ part 'auth.provider.g.dart';
 Future<AuthRepositoryImpl> authProvider(AuthProviderRef ref) async {
   final firebaseAuth = ref.read(firebaseAuthProvider);
   final googleSignIn = ref.read(googleSignInProvider);
-  
+
   return AuthRepositoryImpl(
     firebaseAuth: firebaseAuth,
     googleSignIn: googleSignIn,
