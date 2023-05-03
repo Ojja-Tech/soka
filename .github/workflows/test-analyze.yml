@@ -25,6 +25,10 @@ jobs:
       - name: Fetch code from repository
         uses: actions/checkout@v2
 
+      - name: Setup env
+        run: |
+          echo ${{ secrets.ADMIN_ENV }} | base64 -d > _apps/kapira_admin/.env
+
       - name: Setup the Flutter environment
         uses: subosito/flutter-action@v2
         with:
